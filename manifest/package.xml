@@ -3,6 +3,7 @@
     <types>
         <members>Utils</members>
         <members>AccountTriggerHandler</members>
+        <members>Repository</members>
         <name>ApexClass</name>
     </types>
     <types>
