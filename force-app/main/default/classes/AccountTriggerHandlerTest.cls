@@ -1,3 +1,9 @@
+/*
+_____________________________________________________________    
+@author: Lucas Araujo.
+@description: Apex class Test for coverage code base. 
+_____________________________________________________________
+*/
 @isTest
 public class AccountTriggerHandlerTest {
     
