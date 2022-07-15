@@ -4,6 +4,7 @@
         <members>Utils</members>
         <members>AccountTriggerHandler</members>
         <members>Repository</members>
+        <members>AccountTriggerHandlerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -13,6 +14,10 @@
     <types>
         <members>editRecordAccount</members>
         <name>LightningComponentBundle</name>
+    </types>
+        <types>
+        <members>Account</members>
+        <name>CustomObject</name>
     </types>
     <version>55.0</version>
 </Package>
