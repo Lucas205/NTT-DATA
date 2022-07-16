@@ -5,6 +5,9 @@
         <members>AccountTriggerHandler</members>
         <members>Repository</members>
         <members>AccountTriggerHandlerTest</members>
+        <members>AccountBatch</members>
+        <members>AccountInactive</members>
+        <members>AccountBatchSchedule</members>
         <name>ApexClass</name>
     </types>
     <types>
