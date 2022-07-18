@@ -18,14 +18,14 @@ public class AccountTriggerHandlerTest {
         Account acc = new Account(RecordTypeId = PERCEIRO,
                                   Name = 'Account For Test PERCEIRO',
                                   Active__c = 'Yes',
-                                  AccountNumber = '00000000000',
+                                  AccountNumber = '33991575094',
                                   Type = 'CPF'
                                   );
         
         Account acc1 = new Account(RecordTypeId = OTHER,
                                   Name = 'Account For Test OTHER',
                                   Active__c = 'Yes',
-                                  AccountNumber = '00000000000',
+                                  AccountNumber = '33991575094',
                                   Type = 'CPF'
                                   );
         
@@ -33,7 +33,7 @@ public class AccountTriggerHandlerTest {
         Account acc2 = new Account(RecordTypeId = CONSUMIDOR_FINAL,
                                    Name = 'Account For Test CONSUMIDOR_FINAL',
                                    Active__c = 'Yes',
-                                   AccountNumber = '00000000000000',
+                                   AccountNumber = '10116912000187',
                                    Type = 'CNPJ'
                                   );
         accListSuccess.add(acc);
