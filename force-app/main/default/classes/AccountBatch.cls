@@ -11,21 +11,44 @@ public  class AccountBatch implements Database.Batchable<sObject> {
                             'SELECT'
                             +'    Id,'
                             +'    Name,'
-                            +'    Inativa__c'
+                            +'    Inativa__c,'
+                            +'    LastActivityDate,'
+                            +'    (SELECT'
+                            +'            Id,'
+                            +'            Name,'
+                            +'            AccountId,'
+                            +'            StageName'
+                            +'     FROM'
+                            +'          Opportunities'
+                            +'     WHERE'
+                            +'          (Account.LastActivityDate != LAST_N_DAYS:90)'
+                            +'      OR'
+                            +'          (CreatedDate = LAST_N_DAYS:120 AND isWon = false AND isClosed = false)'
+                            +'      OR'
+                            +'          (StageName = \'Closed Lost\')'
+                            +'      )'                                               
                             +'  FROM'
                             +'      Account'
                             +'  WHERE'
-                            +'      Inativa__c = false'
+                            +'      Id NOT IN'
+                            +'              (SELECT'
+                            +'                      AccountId'
+                            +'              FROM'
+                            +'                  Opportunity'
+                            +'              WHERE'
+                            +'                  (Account.LastActivityDate = LAST_N_DAYS:90)'
+                            +'              OR'
+                            +'                  (CreatedDate = LAST_N_DAYS:120 AND isWon = true AND isClosed = true)'
+                            +'              OR'
+                            +'                  (StageName != \'Closed Lost\')'
+                            +'      )'       
         );
+
     }
     
     public void execute(Database.BatchableContext bc, List<Account> accList) {
         System.debug('AccountBatch:Execute has started...');
-        Set<Id> accIds = new Set<Id>();
-        for(Account acc: accList){
-            accIds.add(acc.Id);
-        }
-        List<Account> accUp = AccountInactive.inactiveAccount(accIds);
+        List<Account> accUp = AccountInactive.inactiveAccount(accList);
         update accUp;
     }       
     
