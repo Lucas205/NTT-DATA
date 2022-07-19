@@ -41,7 +41,8 @@ public  class AccountBatch implements Database.Batchable<sObject> {
                             +'                  (CreatedDate = LAST_N_DAYS:120 AND isWon = true AND isClosed = true)'
                             +'              OR'
                             +'                  (StageName != \'Closed Lost\')'
-                            +'      )'       
+                            +'      )'
+                            +'  AND Inativa__c = false'       
         );
 
     }
